@@ -27,7 +27,7 @@ test('calls `handleContinueShopping` when `Continue Shopping` button is pressed'
 
     const wrapper = shallow(
         <Receipt
-            handleContinueShopping={handleContinueShoppingMock}
+            continueShopping={handleContinueShoppingMock}
             classes={classes}
         />
     ).dive();
@@ -43,7 +43,7 @@ test('calls `handleCreateAccount` when `Create an Account` button is pressed', (
 
     const wrapper = shallow(
         <Receipt
-            handleCreateAccount={handleCreateAccountMock}
+            createAccount={handleCreateAccountMock}
             classes={classes}
         />
     ).dive();
