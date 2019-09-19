@@ -1,15 +1,15 @@
 import React, { useCallback, useMemo } from 'react';
-import { object, shape, string } from 'prop-types';
-import { compose } from 'redux';
+import { shape, string } from 'prop-types';
 import Icon from '../../Icon';
 import { X as Remove } from 'react-feather';
 import { mergeClasses } from '../../../classify';
-import { withRouter } from 'react-router-dom';
 import defaultClasses from './filtersCurrent.css';
 import { useCatalogContext } from '@magento/peregrine/lib/context/catalog';
+import { useRouter } from '@magento/peregrine';
 
 const FiltersCurrent = props => {
-    const { history, keyPrefix, location } = props;
+    const { history, location } = useRouter();
+    const { keyPrefix } = props;
     const classes = mergeClasses(defaultClasses, props.classes);
     const [{ chosenFilterOptions }, { removeFilter }] = useCatalogContext();
 
@@ -72,9 +72,7 @@ FiltersCurrent.propTypes = {
         button: string,
         icon: string
     }),
-    history: object,
-    keyPrefix: string,
-    location: object
+    keyPrefix: string
 };
 
-export default compose(withRouter)(FiltersCurrent);
+export default FiltersCurrent;

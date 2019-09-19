@@ -1,34 +1,38 @@
-import React, { Component, createContext } from 'react';
+import React, { createContext, useContext } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { func, object, string } from 'prop-types';
 
-export const { Consumer, Provider } = createContext();
+const RouterContext = createContext();
 
-export default class MagentoRouter extends Component {
-    static propTypes = {
-        apiBase: string.isRequired,
-        routerProps: object,
-        using: func // e.g., BrowserRouter, MemoryRouter
-    };
+const MagentoRouter = props => {
+    const { apiBase, children, routerProps, using: Router } = props;
 
-    static defaultProps = {
-        routerProps: {},
-        using: BrowserRouter
-    };
+    return (
+        <Router {...routerProps}>
+            <Route>
+                {routeProps => (
+                    <Provider value={{ apiBase, ...routeProps }}>
+                        {children}
+                    </Provider>
+                )}
+            </Route>
+        </Router>
+    );
+};
 
-    render() {
-        const { apiBase, children, routerProps, using: Router } = this.props;
+MagentoRouter.propTypes = {
+    apiBase: string.isRequired,
+    routerProps: object,
+    using: func // e.g., BrowserRouter, MemoryRouter
+};
 
-        return (
-            <Router {...routerProps}>
-                <Route>
-                    {routeProps => (
-                        <Provider value={{ apiBase, ...routeProps }}>
-                            {children}
-                        </Provider>
-                    )}
-                </Route>
-            </Router>
-        );
-    }
-}
+MagentoRouter.defaultProps = {
+    routerProps: {},
+    using: BrowserRouter
+};
+
+export default MagentoRouter;
+
+export const useRouter = () => useContext(RouterContext);
+
+export const { Consumer, Provider } = RouterContext;

@@ -1,17 +1,16 @@
 import React, { useCallback } from 'react';
-import { object, shape, string } from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { shape, string } from 'prop-types';
 import { mergeClasses } from '../../../classify';
 import defaultClasses from './filterFooter.css';
-import { compose } from 'redux';
 import isObjectEmpty from '../../../util/isObjectEmpty';
 import { preserveQueryParams } from '@magento/peregrine/lib/util/preserveQueryParams';
 import { useCatalogContext } from '@magento/peregrine/lib/context/catalog';
 import { useAppContext } from '@magento/peregrine/lib/context/app';
 import serializeToParam from '@magento/peregrine/lib/util/serializeToParam';
+import { useRouter } from '@magento/peregrine';
 
 const FilterFooter = props => {
-    const { history, location } = props;
+    const { history, location } = useRouter();
     const [, { closeDrawer }] = useAppContext();
     const [{ chosenFilterOptions }, catalogApi] = useCatalogContext();
     const { clear: filterClear } = catalogApi.actions.filterOption;
@@ -73,9 +72,7 @@ FilterFooter.propTypes = {
         applyButton: string,
         applyButtonDisabled: string,
         footer: string
-    }),
-    history: object,
-    location: object
+    })
 };
 
-export default compose(withRouter)(FilterFooter);
+export default FilterFooter;
