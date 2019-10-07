@@ -1,6 +1,7 @@
 import React from "react"
 import { useMiniCart } from "@magento/peregrine/lib/talons/MiniCart/useMiniCart"
 
+import Button from "../Button"
 import CartBody from "../MiniCart/body"
 import defaultClasses from "./cart.css"
 
@@ -41,6 +42,11 @@ const Cart = props => {
                 removeItemFromCart={removeItemFromCart}
                 updateItemInCart={handleUpdateItemInCart}
             />
+            <div className={defaultClasses.actions}>
+                <Button priority="high">
+                    {"Continue Shopping"}
+                </Button>
+            </div>
         </div>
     )
 }

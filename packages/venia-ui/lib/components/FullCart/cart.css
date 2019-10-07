@@ -2,3 +2,9 @@
     margin: 0 auto;
     width: 640px;
 }
+
+.actions {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+}
