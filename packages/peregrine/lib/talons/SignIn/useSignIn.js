@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { useUserContext } from '../../context/user';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useApolloClient } from '@apollo/react-hooks';
 import { useCartContext } from '../../context/cart';
 
 export const useSignIn = props => {
@@ -11,6 +11,7 @@ export const useSignIn = props => {
         query
     } = props;
 
+    const { resetStore } = useApolloClient();
     const [isSigningIn, setIsSigningIn] = useState(false);
 
     const [, { getCartDetails, removeCart }] = useCartContext();
@@ -43,7 +44,11 @@ export const useSignIn = props => {
                 const token =
                     response && response.data.generateCustomerToken.token;
 
-                setToken(token);
+                await setToken(token);
+
+                // After login, once the token is saved to local storage, reset the store to set the bearer token.
+                // https://www.apollographql.com/docs/react/networking/authentication/#reset-store-on-logout
+                await resetStore();
 
                 // Then get user details
                 await getUserDetails();
@@ -59,7 +64,14 @@ export const useSignIn = props => {
                 setIsSigningIn(false);
             }
         },
-        [getCartDetails, getUserDetails, removeCart, setToken, signIn]
+        [
+            getCartDetails,
+            getUserDetails,
+            removeCart,
+            resetStore,
+            setToken,
+            signIn
+        ]
     );
 
     const handleForgotPassword = useCallback(() => {
