@@ -1,0 +1,29 @@
+Prerequisites
+
+Install Ced_PwaApi module on your magento 2 
+ (Place folders inside Ced_PwaApi inside your magento 2 root directory) 
+ run below commands 
+    php bin/magento setup:upgrade
+    php bin/magento setup:static-content:deploy
+    php bin/magento setup:di:compile
+
+Install NodeJS >=10.14.1 LTS
+Install Yarn >=1.13.0
+
+place pwa_studio folder in parallel of magento 2 root directory
+
+run below commands from pwa-studio folder
+
+yarn install 
+yarn run build 
+
+inside pwa_studio/packages/ced-concept/.env
+update MAGENTO_BACKEND_URL with your magento2 website url 
+
+yarn run build 
+yarn run stage:ced
+
+
+
+
+
