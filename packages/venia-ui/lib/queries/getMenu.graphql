@@ -1,0 +1,54 @@
+query getMenu($id: Int!) {
+    category(id: $id) {
+        id
+        name
+        children {
+            children_count
+            id
+            include_in_menu
+            name
+            position
+            url_path
+            image
+            productImagePreview: products(pageSize: 1) {
+                items {
+                    small_image {
+                        url
+                    }
+                }
+            }
+            children {
+                children_count
+                id
+                include_in_menu
+                name
+                position
+                url_path
+                image
+                productImagePreview: products(pageSize: 1) {
+                    items {
+                        small_image {
+                            url
+                        }
+                    }
+                }
+                children {
+                    children_count
+                    id
+                    include_in_menu
+                    name
+                    position
+                    url_path
+                    image
+                    productImagePreview: products(pageSize: 1) {
+                        items {
+                            small_image {
+                                url
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
