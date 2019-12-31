@@ -27,7 +27,7 @@ const Menu = props => {
                             return (
                                 <li>
                                     <SubMenu category = {category} />
-                                    <ul class="mega__item">
+                                    <ul className="mega__item">
                                         {sub}
                                     </ul>
                                 </li>
@@ -42,9 +42,9 @@ const Menu = props => {
                     });
 
                     return (
-                            <li>
+                            <li className="drop">
                                 <SubMenu category = {childCategory} />
-                                <ul class="dropdown mega_dropdown">
+                                <ul className="dropdown mega_dropdown">
                                     {subCat}
                                 </ul>
                             </li>
@@ -52,7 +52,7 @@ const Menu = props => {
 
                 }else{
                     return (
-                        <li class="drop">
+                        <li className="drop">
                             <SubMenu category = {childCategory} />
                         </li>
                     );
@@ -61,7 +61,7 @@ const Menu = props => {
         });
 
         return (
-            <ul class="main__menu">{subCategories}</ul>
+            <ul className="main__menu">{subCategories}</ul>
         );
     }catch(error){
         return ( <span></span> );

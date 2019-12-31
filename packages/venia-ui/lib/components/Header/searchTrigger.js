@@ -18,13 +18,17 @@ const SearchTrigger = props => {
     const searchClass = active ? classes.open : classes.root;
 
     return (
-        <button
+        <React.Fragment>
+        <div className="header__account">
+            <button
             className={searchClass}
             aria-label={'Search'}
             onClick={handleClick}
         >
-            <Icon src={SearchIcon} />
+            <i className="icon-magnifier icons"></i>
         </button>
+        </div>
+        </React.Fragment>
     );
 };
 

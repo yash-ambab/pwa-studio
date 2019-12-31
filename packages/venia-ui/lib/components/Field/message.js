@@ -23,7 +23,7 @@ export class Message extends Component {
         const errorMessage = error || asyncError;
         const className = errorMessage ? classes.root_error : classes.root;
 
-        return <p className={className}>{errorMessage || children}</p>;
+        return <p className="error">{errorMessage || children}</p>;
     }
 }
 

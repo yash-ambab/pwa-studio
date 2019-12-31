@@ -41,9 +41,9 @@ const CmsBlockGroup = props => {
     ));
 
     return (
-        <div className={classes.root}>
-            <div className={classes.content}>{blocks}</div>
-        </div>
+        <React.Fragment>
+            {blocks}
+        </React.Fragment>
     );
 };
 

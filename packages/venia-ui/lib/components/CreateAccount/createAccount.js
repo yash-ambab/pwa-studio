@@ -24,9 +24,6 @@ import SIGN_IN_MUTATION from '../../queries/signIn.graphql';
 import GET_CUSTOMER_QUERY from '../../queries/getCustomer.graphql';
 import GET_CART_DETAILS_QUERY from '../../queries/getCartDetails.graphql';
 
-const LEAD =
-    'Check out faster, use multiple addresses, track orders and more by creating an account!';
-
 const CreateAccount = props => {
     const talonProps = useCreateAccount({
         createAccountQuery: CREATE_ACCOUNT_MUTATION,
@@ -60,12 +57,14 @@ const CreateAccount = props => {
     const classes = mergeClasses(defaultClasses, props.classes);
 
     return (
+        <React.Fragment>
+        <h4>Create an Account</h4>
         <Form
             className={classes.root}
             initialValues={initialValues}
             onSubmit={handleSubmit}
         >
-            <p className={classes.lead}>{LEAD}</p>
+            
             <Field label="First Name" required={true}>
                 <TextInput
                     field="customer.firstname"
@@ -124,6 +123,7 @@ const CreateAccount = props => {
                 </Button>
             </div>
         </Form>
+        </React.Fragment>
     );
 };
 

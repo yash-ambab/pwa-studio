@@ -35,22 +35,26 @@ const CartTrigger = props => {
     });
 
     const classes = mergeClasses(defaultClasses, props.classes);
-    const cartIcon = itemCount > 0 ? CART_ICON_FILLED : CART_ICON_EMPTY;
+    //const cartIcon = itemCount > 0 ? CART_ICON_FILLED : CART_ICON_EMPTY;
     const buttonAriaLabel = `Toggle mini cart. You have ${itemCount} items in your cart.`;
 
     const itemCounter = itemCount ? (
-        <span className={classes.counter}>{itemCount}</span>
+        <span className="htc__qua">{itemCount}</span>
     ) : null;
 
     return (
-        <button
-            className={classes.root}
-            aria-label={buttonAriaLabel}
-            onClick={handleClick}
-        >
-            {cartIcon}
+        <React.Fragment>
+        <div className="htc__shopping__cart">
+            <button
+                className="cart__menu"
+                aria-label={buttonAriaLabel}
+                onClick={handleClick}
+            >
+                <i className="icon-handbag icons"></i>
+            </button>
             {itemCounter}
-        </button>
+        </div>
+        </React.Fragment>
     );
 };
 

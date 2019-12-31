@@ -22,12 +22,13 @@ const Header = props => {
     const title = isEditingItem ? 'Edit Cart Item' : 'Shopping Cart';
 
     return (
-        <div className={classes.root}>
-            <h2 className={classes.title}>{title}</h2>
+        <React.Fragment>
+        <div className="offsetmenu__close__btn">
             <Trigger action={handleClick}>
-                <Icon src={CloseIcon} />
+                <i className="zmdi zmdi-close"></i>
             </Trigger>
         </div>
+        </React.Fragment>
     );
 };
 

@@ -29,20 +29,6 @@ const CategoryContent = props => {
 
     const classes = mergeClasses(defaultClasses, props.classes);
 
-    const header = filters ? (
-        <div className={classes.headerButtons}>
-            <button
-                className={classes.filterButton}
-                onClick={handleOpenFilters}
-                onFocus={handleLoadFilters}
-                onMouseOver={handleLoadFilters}
-                type="button"
-            >
-                {'Filter'}
-            </button>
-        </div>
-    ) : null;
-
     // If you want to defer the loading of the FilterModal until user interaction
     // (hover, focus, click), simply add the talon's `loadFilters` prop as
     // part of the conditional here.
@@ -50,21 +36,47 @@ const CategoryContent = props => {
 
     return (
         <Fragment>
-            <Breadcrumbs categoryId={categoryId} />
             <Title>{pageTitle}</Title>
-            <article className={classes.root}>
-                <h1 className={classes.title}>
-                    <div className={classes.categoryTitle}>{categoryName}</div>
-                </h1>
-                {header}
-                <section className={classes.gallery}>
-                    <Gallery items={items} />
-                </section>
-                <div className={classes.pagination}>
-                    <Pagination pageControl={pageControl} />
+            <section className="htc__product__grid bg__white ptb--30">
+                <div className="container">
+                    <div className="row">
+                        {/*<Breadcrumbs categoryId={categoryId} />
+                        <h1 className={classes.title}>
+                            <div className={classes.categoryTitle}>{categoryName}</div>
+                        </h1>*/}
+                        <div className="col-lg-9 col-lg-push-3 col-md-9 col-md-push-3 col-sm-12 col-xs-12">
+                            <div className="htc__product__rightidebar">
+                                <div className="htc__grid__top">
+                                    <div className="htc__select__option">
+                                        <select className="ht__select">
+                                            <option>Default softing</option>
+                                            <option>Sort by popularity</option>
+                                            <option>Sort by average rating</option>
+                                            <option>Sort by newness</option>
+                                        </select>
+                                        <select className="ht__select">
+                                            <option>Show by</option>
+                                            <option>Sort by popularity</option>
+                                            <option>Sort by average rating</option>
+                                            <option>Sort by newness</option>
+                                        </select>
+                                    </div>
+                                    <div className="ht__pro__qun">
+                                        <span>Showing 1-12 of 1033 products</span>
+                                    </div>
+                                    <ul className="view__mode" role="tablist">
+                                        <li role="presentation" className="grid-view active"><a href="#grid-view" role="tab" data-toggle="tab"><i className="zmdi zmdi-grid"></i></a></li>
+                                        <li role="presentation" className="list-view"><a href="#list-view" role="tab" data-toggle="tab"><i className="zmdi zmdi-view-list"></i></a></li>
+                                    </ul>
+                                </div>
+                                <Gallery items={items} />
+                            </div>
+                            <Pagination pageControl={pageControl} />
+                        </div>
+                        <Suspense fallback={null}>{modal}</Suspense>
+                    </div>
                 </div>
-                <Suspense fallback={null}>{modal}</Suspense>
-            </article>
+            </section>
         </Fragment>
     );
 };

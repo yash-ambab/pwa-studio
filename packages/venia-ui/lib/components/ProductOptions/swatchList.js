@@ -27,7 +27,7 @@ const SwatchList = props => {
         [getItemKey, selectedValue.label, items, onSelectionChange]
     );
 
-    return <div className={classes.root}>{swatches}</div>;
+    return <ul className="pro__color">{swatches}</ul>;
 };
 
 SwatchList.propTypes = {

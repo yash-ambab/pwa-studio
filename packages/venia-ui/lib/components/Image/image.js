@@ -96,20 +96,9 @@ const Image = props => {
     );
 
     return (
-        <div className={containerClass}>
-            <PlaceholderImage
-                alt={alt}
-                classes={classes}
-                displayPlaceholder={displayPlaceholder}
-                height={height}
-                imageHasError={hasError}
-                imageIsLoaded={isLoaded}
-                src={placeholder}
-                width={talonResourceWidth}
-                {...rest}
-            />
+        <React.Fragment>
             {actualImage}
-        </div>
+        </React.Fragment>
     );
 };
 

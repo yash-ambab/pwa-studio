@@ -60,14 +60,14 @@ const Swatch = props => {
     const className = classes[getClassName('root', isSelected, hasFocus)];
 
     return (
-        <button
+        <li className={label}><button
             onClick={handleClick}
             title={label}
             className={className}
             style={finalStyle}
         >
             {icon}
-        </button>
+        </button></li>
     );
 };
 

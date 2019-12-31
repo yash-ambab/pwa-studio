@@ -17,11 +17,11 @@ const Main = props => {
     useScrollLock(isMasked);
 
     return (
-        <main className={rootClass}>
+        <div className="wrapper">
             <Header />
-            <div className={pageClass}>{children}</div>
+            {children}
             <Footer />
-        </main>
+        </div>
     );
 };
 

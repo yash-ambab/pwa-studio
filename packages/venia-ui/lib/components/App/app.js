@@ -8,7 +8,7 @@ import { HeadProvider, Title } from '../Head';
 import Main from '../Main';
 import Mask from '../Mask';
 import MiniCart from '../MiniCart';
-import Navigation from '../Navigation';
+
 import Routes from '../Routes';
 import { registerMessageHandler } from '../../util/swUtils';
 import { HTML_UPDATE_AVAILABLE } from '../../constants/swMessageTypes';
@@ -126,7 +126,6 @@ const App = props => {
             </HeadProvider>
         );
     }
-
     return (
         <HeadProvider>
             <Title>{`Home Page - ${STORE_NAME}`}</Title>
@@ -134,7 +133,6 @@ const App = props => {
                 <Routes />
             </Main>
             <Mask isActive={hasOverlay} dismiss={handleCloseDrawer} />
-            <Navigation />
             <MiniCart />
             <ToastContainer />
         </HeadProvider>

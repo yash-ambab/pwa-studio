@@ -7,10 +7,14 @@ import { Lock as LockIcon } from 'react-feather';
 
 const CheckoutButton = ({ disabled, onClick }) => {
     return (
-        <Button priority="high" disabled={disabled} onClick={onClick}>
-            <Icon src={LockIcon} size={16} />
-            <span>Checkout</span>
-        </Button>
+    	<ul className="shopping__btn">
+    	<li><a href="cart.html">View Cart</a></li>
+    	<li className="shp__checkout">
+    		<Button priority="high" disabled={disabled} onClick={onClick}>
+	            Checkout
+	        </Button>
+    	</li>
+    	</ul>
     );
 };
 

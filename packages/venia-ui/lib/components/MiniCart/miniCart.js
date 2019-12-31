@@ -46,22 +46,26 @@ const MiniCart = props => {
     const rootClass = isOpen ? classes.root_open : classes.root;
 
     return (
-        <aside className={rootClass}>
-            <Header closeDrawer={handleClose} isEditingItem={isEditingItem} />
-            <Body
-                beginEditItem={handleBeginEditItem}
-                cartItems={cartItems}
-                closeDrawer={handleClose}
-                currencyCode={currencyCode}
-                endEditItem={handleEndEditItem}
-                isCartEmpty={cartState.isEmpty}
-                isEditingItem={isEditingItem}
-                isLoading={isLoading}
-                isUpdatingItem={isUpdatingItem}
-            />
-            <Mask isActive={isMiniCartMaskOpen} dismiss={handleDismiss} />
-            {footer}
-        </aside>
+        <React.Fragment>
+        <div className="shopping__cart">
+            <div className="shopping__cart__inner">
+                <Header closeDrawer={handleClose} isEditingItem={isEditingItem} />
+                <Body
+                    beginEditItem={handleBeginEditItem}
+                    cartItems={cartItems}
+                    closeDrawer={handleClose}
+                    currencyCode={currencyCode}
+                    endEditItem={handleEndEditItem}
+                    isCartEmpty={cartState.isEmpty}
+                    isEditingItem={isEditingItem}
+                    isLoading={isLoading}
+                    isUpdatingItem={isUpdatingItem}
+                />
+                <Mask isActive={isMiniCartMaskOpen} dismiss={handleDismiss} />
+                {footer}
+            </div>
+        </div>
+        </React.Fragment>
     );
 };
 

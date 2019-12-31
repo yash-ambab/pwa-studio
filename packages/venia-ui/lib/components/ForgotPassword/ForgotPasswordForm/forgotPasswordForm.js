@@ -17,6 +17,8 @@ const ForgotPasswordForm = props => {
     const { initialValues, isResettingPassword, onSubmit } = props;
 
     return (
+        <React.Fragment>
+        <h4>Forgot Password</h4>
         <Form
             className={classes.root}
             initialValues={initialValues}
@@ -39,6 +41,7 @@ const ForgotPasswordForm = props => {
                 </Button>
             </div>
         </Form>
+        </React.Fragment>
     );
 };
 

@@ -7,8 +7,6 @@ import FormSubmissionSuccessful from './FormSubmissionSuccessful';
 import defaultClasses from './forgotPassword.css';
 import { useForgotPassword } from '@magento/peregrine/lib/talons/ForgotPassword/useForgotPassword';
 
-const INSTRUCTIONS = 'Enter your email below to receive a password reset link.';
-
 const ForgotPassword = props => {
     const { initialValues, onClose } = props;
 
@@ -33,7 +31,6 @@ const ForgotPassword = props => {
         />
     ) : (
         <Fragment>
-            <p className={classes.instructions}>{INSTRUCTIONS}</p>
             <ForgotPasswordForm
                 initialValues={initialValues}
                 onSubmit={handleFormSubmit}

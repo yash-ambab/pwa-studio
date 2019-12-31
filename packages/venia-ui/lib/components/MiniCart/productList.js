@@ -26,7 +26,7 @@ const ProductList = props => {
 
     const classes = mergeClasses(defaultClasses, props.classes);
 
-    return <ul className={classes.root}>{products}</ul>;
+    return <div className="shp__cart__wrap">{products}</div>;
 };
 
 ProductList.propTypes = {

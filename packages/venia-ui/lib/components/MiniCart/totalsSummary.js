@@ -17,24 +17,25 @@ const TotalsSummary = props => {
     const numItemsText = numItems === 1 ? 'item' : 'items';
 
     return (
-        <div className={classes.root}>
+        <React.Fragment>
             {hasSubtotal && (
-                <dl className={classes.totals}>
-                    <dt className={classes.subtotalLabel}>
-                        <span>
+                <ul className="shoping__total">
+                    <li className="subtotal">
                             {'Cart Total : '}
-                            <Price
-                                currencyCode={currencyCode}
-                                value={subtotal}
-                            />
-                        </span>
-                    </dt>
-                    <dd className={classes.subtotalValue}>
+                    </li>
+                    <li class="total__price">
+                        <Price
+                            currencyCode={currencyCode}
+                            value={subtotal}
+                        />
+                    </li>
+                    {/*<li class="total__price">
                         ({numItems} {numItemsText})
-                    </dd>
-                </dl>
+                    </li>*/}
+                </ul>
             )}
-        </div>
+
+        </React.Fragment>
     );
 };
 

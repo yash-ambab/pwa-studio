@@ -101,5 +101,17 @@
       "path": "./packages/venia-concept/dist/+([0-9]).*.js",
       "maxSize": "100 kB"
     }
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "~4.4.1",
+    "css-loader": "~3.4.0",
+    "file-loader": "~5.0.2",
+    "jquery": "~3.4.1",
+    "popper.js": "~1.16.0",
+    "react-bootstrap": "~1.0.0-beta.16",
+    "react-owl-carousel": "~2.3.1",
+    "react-simple-line-icons": "~1.0.8",
+    "simple-line-icons": "~2.4.1",
+    "url-loader": "~3.0.0"
+  }
 }

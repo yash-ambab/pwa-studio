@@ -55,33 +55,14 @@ const Navigation = props => {
     ) : null;
 
     return (
-        <aside className={rootClassName}>
-            <header className={rootHeaderClassName}>
-                <NavHeader
-                    isTopLevel={isTopLevel}
-                    onBack={handleBack}
-                    onClose={handleClose}
-                    view={view}
-                />
-            </header>
-            <div className={bodyClassName}>
-                <CategoryTree
-                    categoryId={categoryId}
-                    categories={categories}
-                    onNavigate={handleClose}
-                    setCategoryId={setCategoryId}
-                    updateCategories={catalogActions.updateCategories}
-                />
-            </div>
-            <div className={classes.footer}>
-                <AuthBar
-                    disabled={hasModal}
-                    showMyAccount={showMyAccount}
-                    showSignIn={showSignIn}
-                />
-            </div>
-            <div className={modalClassName}>{authModal}</div>
-        </aside>
+    <React.Fragment>
+        <AuthBar
+            disabled={hasModal}
+            showMyAccount={showMyAccount}
+            showSignIn={showSignIn}
+        />
+        <div className="customer-popup">{authModal}</div>
+    </React.Fragment>
     );
 };
 

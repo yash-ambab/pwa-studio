@@ -11,8 +11,8 @@ import defaultClasses from './item.css';
 
 // The placeholder image is 4:5, so we should make sure to size our product
 // images appropriately.
-const IMAGE_WIDTH = 300;
-const IMAGE_HEIGHT = 375;
+const IMAGE_WIDTH = 290;
+const IMAGE_HEIGHT = 290;
 
 // Gallery switches from two columns to three at 640px.
 const IMAGE_WIDTHS = new Map()
@@ -52,27 +52,44 @@ const GalleryItem = props => {
     const productLink = resourceUrl(`/${url_key}${productUrlSuffix}`);
 
     return (
-        <div className={classes.root}>
-            <Link to={productLink} className={classes.images}>
-                <Image
-                    alt={name}
-                    classes={{
-                        image: classes.image,
-                        root: classes.imageContainer
-                    }}
-                    height={IMAGE_HEIGHT}
-                    resource={small_image}
-                    widths={IMAGE_WIDTHS}
-                />
-            </Link>
-            <Link to={productLink} className={classes.name}>
-                <span>{name}</span>
-            </Link>
-            <div className={classes.price}>
-                <Price
+        <div className="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+            <div className="category">
+                <div className="ht__cat__thumb">
+                    <Link to={productLink} className={classes.images}>
+                        <Image
+                            alt={name}
+                            classes={{
+                                image: classes.image,
+                                root: classes.imageContainer
+                            }}
+                            height={IMAGE_HEIGHT}
+                            resource={small_image}
+                            widths={IMAGE_WIDTHS}
+                        />
+                    </Link>
+                </div>
+            <div className="fr__hover__info">
+                <ul className="product__action">
+                    <li><Link to={productLink}><i className="icon-heart icons"></i></Link></li>
+                    <li><Link to={productLink}><i className="icon-handbag icons"></i></Link></li>
+                    <li><Link to={productLink}><i className="icon-shuffle icons"></i></Link></li>
+                </ul>
+            </div>
+            <div className="fr__product__inner">
+                <h4>
+                    <Link to={productLink} className={classes.name}>
+                        {name}
+                    </Link>
+                </h4>
+                <ul className="fr__pro__prize">
+                    <li>
+                        <Price
                     value={price.regularPrice.amount.value}
                     currencyCode={price.regularPrice.amount.currency}
                 />
+                    </li>
+                </ul>
+            </div>
             </div>
         </div>
     );

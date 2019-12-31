@@ -55,13 +55,13 @@ const Body = props => {
 
     const classes = mergeClasses(defaultClasses, props.classes);
     return (
-        <div className={classes.root}>
+        <React.Fragment>
             <ProductList
                 beginEditItem={handleBeginEditItem}
                 cartItems={cartItems}
                 currencyCode={currencyCode}
             />
-        </div>
+        </React.Fragment>
     );
 };
 

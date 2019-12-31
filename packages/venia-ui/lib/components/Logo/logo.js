@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { mergeClasses } from '../../classify';
 import Image from '../Image';
-import logo from './logo.svg';
+import logo from './logo.png';
 
 /**
  * A component that renders a logo in the header.
@@ -20,11 +20,9 @@ const Logo = props => {
 
     return (
         <Image
-            alt="Venia"
-            classes={{ image: classes.logo }}
+            alt="Ambab"
             height={height}
             src={logo}
-            title="Venia"
             width={width}
         />
     );
@@ -49,8 +47,8 @@ Logo.propTypes = {
 };
 
 Logo.defaultProps = {
-    height: 24,
-    width: 48
+    height: 43,
+    width: 149
 };
 
 export default Logo;

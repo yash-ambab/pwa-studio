@@ -56,7 +56,8 @@ const SignIn = props => {
     }
 
     return (
-        <div className={classes.root}>
+        <React.Fragment>
+            <h4>Sign In</h4>
             <Form
                 ref={formRef}
                 className={classes.form}
@@ -96,7 +97,6 @@ const SignIn = props => {
                     {'Forgot Password?'}
                 </Button>
             </div>
-            <div className={classes.signInDivider} />
             <div className={classes.createAccountButton}>
                 <Button
                     priority="normal"
@@ -106,7 +106,7 @@ const SignIn = props => {
                     {'Create an Account'}
                 </Button>
             </div>
-        </div>
+        </React.Fragment>
     );
 };
 

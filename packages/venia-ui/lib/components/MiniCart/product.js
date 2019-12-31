@@ -59,45 +59,30 @@ const Product = props => {
         return <Image {...imageProps} />;
     }, [classes.image, classes.imageContainer, productImage, productName]);
 
-    const mask = isLoading ? <div className={classes.mask} /> : null;
+    const mask = isLoading ? <div className="body__overlay" /> : null;
 
     return (
-        <li className={classes.root}>
-            {productImageComponent}
-            <div className={classes.name}>{productName}</div>
-            <ProductOptions options={productOptions} />
-            <div className={classes.quantity}>
-                <div className={classes.quantityRow}>
-                    <span>{productQuantity}</span>
-                    <span className={classes.quantityOperator}>{'×'}</span>
-                    <span className={classes.price}>
+        <React.Fragment>
+        <div className="shp__single__product">
+            <div className="shp__pro__thumb">
+                {productImageComponent}
+            </div>
+            <div className="shp__pro__details">
+                <h2>{productName}</h2>
+                <ProductOptions options={productOptions} />
+                <span className="quantity">QTY: {productQuantity}</span>
+                <span className="shp__price">
                         <Price
                             currencyCode={currencyCode}
                             value={productPrice}
                         />
-                    </span>
-                </div>
+                </span>
             </div>
-            {mask}
-            <Kebab>
-                <Section
-                    text="Add to favorites"
-                    onClick={handleFavoriteItem}
-                    icon="Heart"
-                    isFilled={isFavorite}
-                />
-                <Section
-                    text="Edit item"
-                    onClick={handleEditItem}
-                    icon="Edit2"
-                />
-                <Section
-                    text="Remove item"
-                    onClick={handleRemoveItem}
-                    icon="Trash"
-                />
-            </Kebab>
-        </li>
+            <div className="remove__btn">
+                <button onClick={handleRemoveItem} title="Remove this item"><i className="zmdi zmdi-close"></i></button>
+            </div>
+        </div>
+        </React.Fragment>
     );
 };
 

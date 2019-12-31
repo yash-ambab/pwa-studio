@@ -40,7 +40,7 @@ module.exports = async env => {
                 cssModules: true
             },
             '@magento/venia-ui': {
-                cssModules: true,
+                cssModules: false,
                 esModules: true,
                 graphqlQueries: true,
                 rootComponents: true,

@@ -27,7 +27,7 @@ const TileList = props => {
         [getItemKey, selectedValue.label, items, onSelectionChange]
     );
 
-    return <div className={classes.root}>{tiles}</div>;
+    return <ul className="pro__color">{tiles}</ul>;
 };
 
 TileList.propTypes = {

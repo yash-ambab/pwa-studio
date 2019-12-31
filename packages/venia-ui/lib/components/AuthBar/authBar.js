@@ -26,11 +26,11 @@ const AuthBar = props => {
             priority="high"
             onClick={handleSignIn}
         >
-            {'Sign In'}
+            <i className="icon-user icons"></i>
         </Button>
     );
 
-    return <div className={classes.root}>{child}</div>;
+    return <div className="header__search search search__open">{child}</div>;
 };
 
 export default AuthBar;

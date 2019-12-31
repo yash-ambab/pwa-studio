@@ -64,50 +64,71 @@ const ProductFullDetail = props => {
 
     return (
         <Fragment>
-            {breadcrumbs}
-            <Form className={classes.root}>
-                <section className={classes.title}>
-                    <h1 className={classes.productName}>
-                        {productDetails.name}
-                    </h1>
-                    <p className={classes.productPrice}>
-                        <Price
-                            currencyCode={productDetails.price.currency}
-                            value={productDetails.price.value}
-                        />
-                    </p>
-                </section>
-                <section className={classes.imageCarousel}>
-                    <Carousel images={mediaGalleryEntries} />
-                </section>
-                <section className={classes.options}>{options}</section>
-                <section className={classes.quantity}>
-                    <h2 className={classes.quantityTitle}>Quantity</h2>
-                    <Quantity
-                        initialValue={quantity}
-                        onValueChange={handleSetQuantity}
-                    />
-                </section>
-                <section className={classes.cartActions}>
-                    <Button
-                        priority="high"
-                        onClick={handleAddToCart}
-                        disabled={isAddToCartDisabled}
-                    >
-                        Add to Cart
-                    </Button>
-                </section>
-                <section className={classes.description}>
-                    <h2 className={classes.descriptionTitle}>
-                        Product Description
-                    </h2>
-                    <RichText content={productDetails.description} />
-                </section>
-                <section className={classes.details}>
-                    <h2 className={classes.detailsTitle}>SKU</h2>
-                    <strong>{productDetails.sku}</strong>
-                </section>
-            </Form>
+            <section className="htc__product__details bg__white ptb--30">
+                <div className="htc__product__details__top">
+                    <div className="container">
+                        <div className="row">
+                        {/*breadcrumbs*/}
+                        <Form>
+                            <div className="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+                                <Carousel images={mediaGalleryEntries} />
+                            </div>
+                            <div className="col-md-7 col-lg-7 col-sm-12 col-xs-12 smt-40 xmt-40">
+                                <div className="ht__product__dtl">
+                                    <h2>{productDetails.name}</h2>
+                                    <h6>SKU: <span>{productDetails.sku}</span></h6>
+                                    <ul className="pro__prize">
+                                        <li><Price
+                                            currencyCode={productDetails.price.currency}
+                                            value={productDetails.price.value}
+                                        /></li>
+                                    </ul>
+                                    <div className="ht__pro__desc">
+                                        {options}
+                                        <div className="sin__desc align--left">
+                                            <p><span>Quantity:</span></p>
+                                            <Quantity
+                                                initialValue={quantity}
+                                                onValueChange={handleSetQuantity}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="ht__pro__desc add-to-cart-btn">
+                                        <Button
+                                            priority="high"
+                                            onClick={handleAddToCart}
+                                            disabled={isAddToCartDisabled}
+                                        >
+                                            Add to Cart
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </Form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+             <section className="htc__produc__decription bg__white">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xs-12">
+                                <ul className="pro__details__tab" role="tablist">
+                                    <li className="description active">
+                                        <a href="#description" role="tab" data-toggle="tab" aria-expanded="true">Product Description</a>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-xs-12">
+                            <div class="ht__pro__details__content">
+                                <RichText content={productDetails.description} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </Fragment>
     );
 };

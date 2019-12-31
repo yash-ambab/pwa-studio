@@ -32,11 +32,12 @@ module.exports = () => ({
                         loader: 'css-loader',
                         options: {
                             localIdentName: '[name]-[local]-[hash:base64:3]',
-                            modules: true
+                            modules: false
                         }
                     }
                 ]
             },
+            { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
             {
                 test: /\.md$/,
                 use: [

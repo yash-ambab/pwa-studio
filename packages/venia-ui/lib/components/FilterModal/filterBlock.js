@@ -21,17 +21,8 @@ const FilterBlock = props => {
         : classes.list_collapsed;
 
     return (
-        <li className={classes.root}>
-            <button
-                className={classes.trigger}
-                onClick={handleClick}
-                type="button"
-            >
-                <span className={classes.header}>
-                    <span className={classes.name}>{name}</span>
-                    <Icon src={iconSrc} />
-                </span>
-            </button>
+        <div className="htc__category">
+            <h4 className="title__line--4">{name}</h4>
             <Form className={listClass}>
                 <FilterList
                     filterApi={filterApi}
@@ -42,7 +33,7 @@ const FilterBlock = props => {
                     name={name}
                 />
             </Form>
-        </li>
+        </div>
     );
 };
 

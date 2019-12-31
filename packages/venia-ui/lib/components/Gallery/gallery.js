@@ -38,8 +38,10 @@ const Gallery = props => {
     );
 
     return (
-        <div className={classes.root}>
-            <div className={classes.items}>{galleryItems}</div>
+        <div className="row">
+            <div className="shop__grid__view__wrap">
+                {galleryItems}
+            </div>
         </div>
     );
 };

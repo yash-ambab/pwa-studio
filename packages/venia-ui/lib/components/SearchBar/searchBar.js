@@ -25,30 +25,41 @@ const SearchBar = props => {
     const rootClassName = isOpen ? classes.root_open : classes.root;
 
     return (
-        <div className={rootClassName}>
-            <div ref={containerRef} className={classes.container}>
-                <Form
-                    autoComplete="off"
-                    className={classes.form}
-                    initialValues={initialValues}
-                    onSubmit={handleSubmit}
-                >
-                    <div className={classes.search}>
-                        <SearchField
-                            location={location}
-                            onChange={handleChange}
-                            onFocus={handleFocus}
-                        />
+        <React.Fragment>
+        <div className="search__area">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="search__inner">
+                            <Form
+                                autoComplete="off"
+                                className={classes.form}
+                                initialValues={initialValues}
+                                onSubmit={handleSubmit}
+                            >
+                                <SearchField
+                                    location={location}
+                                    onChange={handleChange}
+                                    onFocus={handleFocus}
+                                />
+                                <div className={classes.autocomplete}>
+                                    <Autocomplete
+                                        setVisible={setExpanded}
+                                        visible={expanded}
+                                    />
+                                </div>
+                            </Form>
+                            <div className="search__close__btn">
+                                <span className="search__close__btn_icon">
+                                <i className="zmdi zmdi-close"></i>
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <div className={classes.autocomplete}>
-                        <Autocomplete
-                            setVisible={setExpanded}
-                            visible={expanded}
-                        />
-                    </div>
-                </Form>
+                </div>
             </div>
         </div>
+        </React.Fragment>
     );
 };
 

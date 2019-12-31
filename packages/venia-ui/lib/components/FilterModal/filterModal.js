@@ -54,21 +54,14 @@ const FilterModal = props => {
     );
 
     return (
-        <Modal>
-            <aside className={modalClass}>
-                <div className={classes.body}>
-                    <div className={classes.header}>
-                        <h2 className={classes.headerTitle}>{'Filter By'}</h2>
-                        <button onClick={handleClose}>
-                            <Icon src={CloseIcon} />
-                        </button>
-                    </div>
+            <div className="col-lg-3 col-lg-pull-9 col-md-3 col-md-pull-9 col-sm-12 col-xs-12 smt-40 xmt-40">
+                <div className="htc__product__leftsidebar">
                     <CurrentFilters
                         filterApi={filterApi}
                         filterNames={filterNames}
                         filterState={filterState}
                     />
-                    <ul className={classes.blocks}>{filtersList}</ul>
+                    {filtersList}
                 </div>
                 <FilterFooter
                     applyFilters={handleApply}
@@ -76,8 +69,7 @@ const FilterModal = props => {
                     isOpen={isOpen}
                     resetFilters={handleReset}
                 />
-            </aside>
-        </Modal>
+            </div>
     );
 };
 

@@ -31,12 +31,12 @@ const Pagination = props => {
         () =>
             tiles.map(tileNumber => {
                 return (
-                    <Tile
+                    <li><Tile
                         isActive={tileNumber === currentPage}
                         key={tileNumber}
                         number={tileNumber}
                         onClick={setPage}
-                    />
+                    /></li>
                 );
             }),
         [currentPage, tiles, setPage]
@@ -49,32 +49,36 @@ const Pagination = props => {
     const classes = mergeClasses(defaultClasses, props.classes);
 
     return (
-        <div className={classes.root}>
-            <NavButton
-                name={navButtons.firstPage.name}
-                active={isActiveLeft}
-                onClick={handleLeftSkip}
-                buttonLabel={navButtons.firstPage.buttonLabel}
-            />
-            <NavButton
-                name={navButtons.prevPage.name}
-                active={isActiveLeft}
-                onClick={handleNavBack}
-                buttonLabel={navButtons.prevPage.buttonLabel}
-            />
-            {navigationTiles}
-            <NavButton
-                name={navButtons.nextPage.name}
-                active={isActiveRight}
-                onClick={handleNavForward}
-                buttonLabel={navButtons.nextPage.buttonLabel}
-            />
-            <NavButton
-                name={navButtons.lastPage.name}
-                active={isActiveRight}
-                onClick={handleRightSkip}
-                buttonLabel={navButtons.lastPage.buttonLabel}
-            />
+        <div className="row">
+            <div className="col-xs-12">
+                <ul className="htc__pagenation">
+                    {/*<li><NavButton
+                        name={navButtons.firstPage.name}
+                        active={isActiveLeft}
+                        onClick={handleLeftSkip}
+                        buttonLabel={navButtons.firstPage.buttonLabel}
+                    /></li>*/}
+                    <li><NavButton
+                        name={navButtons.prevPage.name}
+                        active={isActiveLeft}
+                        onClick={handleNavBack}
+                        buttonLabel={navButtons.prevPage.buttonLabel}
+                    /></li>
+                    {navigationTiles}
+                    <li><NavButton
+                        name={navButtons.nextPage.name}
+                        active={isActiveRight}
+                        onClick={handleNavForward}
+                        buttonLabel={navButtons.nextPage.buttonLabel}
+                    /></li>
+                    {/*<li><NavButton
+                        name={navButtons.lastPage.name}
+                        active={isActiveRight}
+                        onClick={handleRightSkip}
+                        buttonLabel={navButtons.lastPage.buttonLabel}
+                    /></li>*/}
+                </ul>
+            </div>
         </div>
     );
 };

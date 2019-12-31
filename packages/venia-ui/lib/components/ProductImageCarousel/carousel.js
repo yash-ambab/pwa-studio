@@ -14,7 +14,7 @@ import Image from '../Image';
 import defaultClasses from './carousel.css';
 import Thumbnail from './thumbnail';
 
-const IMAGE_WIDTH = 640;
+const IMAGE_WIDTH = 460;
 
 /**
  * Carousel component for product images
@@ -93,18 +93,18 @@ const ProductImageCarousel = props => {
     return (
         <div className={classes.root}>
             <div className={classes.carouselContainer}>
-                <button
+                {/*<button
                     className={classes.previousButton}
                     onClick={handlePrevious}
                 >
                     <Icon src={ChevronLeftIcon} size={40} />
-                </button>
+                </button>*/}
                 {image}
-                <button className={classes.nextButton} onClick={handleNext}>
+                {/*<button className={classes.nextButton} onClick={handleNext}>
                     <Icon src={ChevronRightIcon} size={40} />
-                </button>
+                </button>*/}
             </div>
-            <div className={classes.thumbnailList}>{thumbnails}</div>
+            <div className="thumbnail_images">{thumbnails}</div>
         </div>
     );
 };

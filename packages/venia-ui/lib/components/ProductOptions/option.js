@@ -59,20 +59,14 @@ const Option = props => {
     const classes = mergeClasses(defaultClasses, props.classes);
 
     return (
-        <div className={classes.root}>
-            <h3 className={classes.title}>
-                <span>{label}</span>
-            </h3>
+        <div className="sin__desc align--left">
+            <p><span>{label}: {selectedValueDescription}</span></p>
             <ValueList
                 getItemKey={getItemKey}
                 selectedValue={initialSelection}
                 items={values}
                 onSelectionChange={handleSelectionChange}
             />
-            <dl className={classes.selection}>
-                <dt className={classes.selectionLabel}>{selectedValueLabel}</dt>
-                <dd>{selectedValueDescription}</dd>
-            </dl>
         </div>
     );
 };

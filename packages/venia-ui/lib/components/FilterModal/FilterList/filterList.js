@@ -66,7 +66,7 @@ const FilterList = props => {
     return (
         <Fragment>
             {searchElement}
-            <ul className={itemsClass}>{filteredItemElements}</ul>
+            <ul className="ht__cat__list">{filteredItemElements}</ul>
         </Fragment>
     );
 };
