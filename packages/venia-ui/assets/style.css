@@ -62,6 +62,7 @@ a:hover{
 @import url("css/shortcode/slider.css");
 @import url("css/shortcode/footer.css");
 @import url("css/responsive.css");
+
 /*-----------------------------------------------------------------------------------
 
   Template Name: Asbab eCommerce HTML5 Template.
@@ -2230,6 +2231,11 @@ select.select__size {
 .table-content table td.product-thumbnail{
     width: 130px;
 }
+.table-content table td.product-remove button{
+  background: none;
+  border: none;
+  outline:none;
+}
 .table-content table td.product-remove i {
     color: #212121;
     display: inline-block;
@@ -2493,7 +2499,7 @@ a.shipping-calculator-button:hover{
     border-top: 1px solid #ebebeb;
     display: flex;
     justify-content: space-between;
-    padding-top: 18px;
+    padding: 18px 0;
 }
 .cart__total span {
     color: #3f3f3f;
@@ -2501,6 +2507,9 @@ a.shipping-calculator-button:hover{
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
+}
+.cart__total + div div ul li:first-child{
+  display: none;
 }
 .payment__btn {
     margin-top: 54px;

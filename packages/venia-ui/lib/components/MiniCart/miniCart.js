@@ -31,6 +31,8 @@ const MiniCart = props => {
         subtotal
     } = useMiniCart();
 
+    console.log(isOpen);
+
     const footer = shouldShowFooter ? (
         <Footer
             currencyCode={currencyCode}
@@ -43,11 +45,13 @@ const MiniCart = props => {
     ) : null;
 
     const classes = mergeClasses(defaultClasses, props.classes);
-    const rootClass = isOpen ? classes.root_open : classes.root;
+    //const rootClass = isOpen ? classes.root_open : classes.root;
+
+    const rootClass = isOpen ? "shopping__cart shopping__cart__on" : "shopping__cart";
 
     return (
         <React.Fragment>
-        <div className="shopping__cart">
+        <div className={rootClass}>
             <div className="shopping__cart__inner">
                 <Header closeDrawer={handleClose} isEditingItem={isEditingItem} />
                 <Body

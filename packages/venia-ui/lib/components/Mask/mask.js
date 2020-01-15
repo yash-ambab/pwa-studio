@@ -42,9 +42,9 @@ class Mask extends Component {
 
     render() {
         const { classes, dismiss, isActive } = this.props;
-        const className = isActive ? classes.root_active : classes.root;
+        const className = isActive ? "mask active" : "mask";
 
-        return <button className="mask" onClick={dismiss} />;
+        return <button className={className} onClick={dismiss} />;
     }
 }
 

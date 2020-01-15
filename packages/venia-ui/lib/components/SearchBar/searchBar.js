@@ -9,7 +9,7 @@ import SearchField from './searchField';
 import defaultClasses from './searchBar.css';
 
 const SearchBar = props => {
-    const { history, isOpen, location } = props;
+    const { history, isOpen, location, onHandleClick } = props;
     const talonProps = useSearchBar({ history });
     const {
         containerRef,
@@ -49,7 +49,7 @@ const SearchBar = props => {
                                     />
                                 </div>
                             </Form>
-                            <div className="search__close__btn">
+                            <div className="search__close__btn" onClick={onHandleClick}>
                                 <span className="search__close__btn_icon">
                                 <i className="zmdi zmdi-close"></i>
                                 </span>

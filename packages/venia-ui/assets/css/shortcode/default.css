@@ -215,7 +215,8 @@ body {
 ` 04. Transtion
 -----------------------*/
 a,
-.btn {
+.btn,
+button {
     transition: all 0.3s ease-out 0s;
 }
 input,

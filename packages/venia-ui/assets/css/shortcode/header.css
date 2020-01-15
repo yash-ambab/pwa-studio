@@ -768,12 +768,17 @@ nav.off__canvars--menu ul li ul li a:hover {
     top: 0;
     z-index: 10;
 }
-.offsetmenu__close__btn a i {
+.offsetmenu__close__btn button{
+  background: none;
+  outline: none;
+  border: none;
+}
+.offsetmenu__close__btn a i, .offsetmenu__close__btn button i {
     color: #666666;
     font-size: 36px;
     transition: all 0.3s ease 0s;
 }
-.offsetmenu__close__btn a:hover i{
+.offsetmenu__close__btn a:hover i, .offsetmenu__close__btn button:hover i{
     color: #c43b68;
 }
 .offset__widget {
@@ -941,6 +946,7 @@ h4.offset__title {
     transition: all 0.5s ease 0s;
     width: 100%;
     display: block;
+    font-family: 'Poppins', sans-serif;
 }
 .shopping__btn li a:hover, .shopping__btn li button:hover{
     background: #c43b68;
@@ -970,6 +976,11 @@ h4.offset__title {
     text-align: right;
     width: 20px;
 }
+.remove__btn button{
+  background: none;
+  outline: none;
+  border: none;
+}
 .shp__pro__details {
     min-width: 71%;
 }
@@ -982,12 +993,12 @@ h4.offset__title {
     justify-content: space-between;
     padding: 22px 0;
 }
-.remove__btn a i {
+.remove__btn a i, .remove__btn button i {
     color: #ccc;
     font-size: 22px;
     transition: all 0.5s ease 0s;
 }
-.remove__btn a:hover i {
+.remove__btn a:hover i, .remove__btn button:hover i {
     color: #c43b68;
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);

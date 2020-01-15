@@ -25,8 +25,6 @@ const Header = props => {
         isOnline,
         searchOpen
     } = useHeader();
-
-
     const classes = mergeClasses(defaultClasses, props.classes, myStyles);
     const rootClass = searchOpen ? classes.open : classes.closed;
     const searchBarFallback = (
@@ -44,6 +42,7 @@ const Header = props => {
                         isOpen={searchOpen}
                         history={history}
                         location={location}
+                        onHandleClick={handleSearchTriggerClick}
                     />
                 )}
             />
