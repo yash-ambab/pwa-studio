@@ -13,22 +13,12 @@ import { useUserChip } from '@magento/peregrine/lib/talons/AuthBar/useUserChip';
 const UserChip = props => {
     const classes = mergeClasses(defaultClasses, props.classes);
 
-    const { display, email, handleClick } = useUserChip(props);
+    const { display, handleClick } = useUserChip(props);
 
     return (
         <button className={classes.root} onClick={handleClick}>
-            <span className={classes.content}>
-                <span className={classes.avatar}>
-                    <Icon src={UserIcon} />
-                </span>
-                <span className={classes.user}>
-                    <span className={classes.fullName}>{display}</span>
-                    <span className={classes.email}>{email}</span>
-                </span>
-                <span className={classes.icon}>
-                    <Icon src={ChevronRightIcon} />
-                </span>
-            </span>
+            <i className="icon-user icons"></i>
+            <span>{display}</span>
         </button>
     );
 };

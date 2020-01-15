@@ -7,6 +7,7 @@ import Menu from '../Menu';
 import CartTrigger from './cartTrigger';
 import SearchTrigger from './searchTrigger';
 import Navigation from '../Navigation';
+import SignInHeader from '../SignInHeader';
 import OnlineIndicator from './onlineIndicator';
 import { useHeader } from '@magento/peregrine/lib/talons/Header/useHeader';
 
@@ -67,14 +68,14 @@ const Header = props => {
                             </Link>
                         </div>
                     </div>
-                    <div className="col-md-7 col-lg-8 col-sm-5 col-xs-3">
+                    <div className="col-md-7 col-lg-7 col-sm-5 col-xs-3">
                         <nav className="main__menu__nav hidden-xs hidden-sm">
                             <Menu/>
                         </nav> 
                     </div>
-                    <div className="col-md-3 col-lg-2 col-sm-4 col-xs-4">
+                    <div className="col-md-3 col-lg-3 col-sm-4 col-xs-4">
                         <div className="header__right">
-                            <Navigation />
+                            <SignInHeader />
                             <SearchTrigger
                                 active={searchOpen}
                                 onClick={handleSearchTriggerClick}
