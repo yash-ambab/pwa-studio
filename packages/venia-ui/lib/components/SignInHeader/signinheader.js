@@ -14,9 +14,6 @@ const AuthModal = React.lazy(() => import('../AuthModal'));
 const Navigation = props => {
     const {
         hasModal,
-        showCreateAccount,
-        showForgotPassword,
-        showMyAccount,
         showSignIn,
         view
     } = useNavigation({ customerQuery: GET_CUSTOMER_QUERY });
@@ -27,9 +24,6 @@ const Navigation = props => {
     const authModal = hasModal ? (
         <Suspense fallback={<LoadingIndicator />}>
             <AuthModal
-                showCreateAccount={showCreateAccount}
-                showForgotPassword={showForgotPassword}
-                showMyAccount={showMyAccount}
                 showSignIn={showSignIn}
                 view={view}
             />

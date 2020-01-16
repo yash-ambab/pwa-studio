@@ -7,9 +7,11 @@ import UserChip from './userChip';
 import defaultClasses from './authBar.css';
 import { useAuthBar } from '@magento/peregrine/lib/talons/AuthBar/useAuthBar';
 
+import { useHistory } from 'react-router-dom';
+
 const AuthBar = props => {
     const classes = mergeClasses(defaultClasses, props.classes);
-
+    const history = useHistory();
     const {
         currentUser,
         handleShowMyAccount,
@@ -24,7 +26,7 @@ const AuthBar = props => {
         <Button
             disabled={isSignInDisabled}
             priority="high"
-            onClick={handleSignIn}
+            onClick={() => {history.push('sign-in')}}
         >
             <i className="icon-user icons"></i>
         </Button>

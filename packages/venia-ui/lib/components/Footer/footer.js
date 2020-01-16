@@ -32,10 +32,10 @@ const Footer = props => {
                     <div className="footer">
                         <h2 className="title__line--2">NEWSLETTER </h2>
                         <div className="ft__inner">
-                            <div class="news__input">
+                            <div className="news__input">
                                 <input type="text" placeholder="Your Mail*" />
-                                <div class="send__btn">
-                                    <a class="fr__btn" href="#">Send Mail</a>
+                                <div className="send__btn">
+                                    <a className="fr__btn" href="#">Send Mail</a>
                                 </div>
                             </div>
                         </div>
