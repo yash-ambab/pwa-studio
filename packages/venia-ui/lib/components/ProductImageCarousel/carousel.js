@@ -13,6 +13,9 @@ import Icon from '../Icon';
 import Image from '../Image';
 import defaultClasses from './carousel.css';
 import Thumbnail from './thumbnail';
+import ReactImageMagnify from 'react-image-magnify';
+
+import watchImg from '../Logo/logo.png';
 
 const IMAGE_WIDTH = 460;
 
@@ -66,16 +69,25 @@ const ProductImageCarousel = props => {
 
     let image;
     if (currentImage.file) {
+        let path = '/media/catalog/product'+currentImage.file;
         image = (
-            <Image
-                alt={altText}
-                classes={{
-                    image: classes.currentImage,
-                    root: classes.imageContainer
-                }}
-                resource={currentImage.file}
-                width={IMAGE_WIDTH}
-            />
+            <ReactImageMagnify {...{
+                smallImage: {
+                    src: path,
+                    width: 460,
+                    height: 460,
+                    isFluidWidth: true
+                },
+                largeImage: {
+                    src: path,
+                    width: 1000,
+                    height: 1000
+                },
+                enlargedImageContainerDimensions: {
+                    width: '150%',
+                    height: '100%'
+                }
+            }} />
         );
     } else {
         image = (
@@ -91,7 +103,7 @@ const ProductImageCarousel = props => {
     }
 
     return (
-        <div className={classes.root}>
+        <React.Fragment>
             <div className={classes.carouselContainer}>
                 {/*<button
                     className={classes.previousButton}
@@ -105,7 +117,7 @@ const ProductImageCarousel = props => {
                 </button>*/}
             </div>
             <div className="thumbnail_images">{thumbnails}</div>
-        </div>
+        </React.Fragment>
     );
 };
 

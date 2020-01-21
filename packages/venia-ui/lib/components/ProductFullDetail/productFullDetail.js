@@ -20,6 +20,19 @@ import GET_CART_DETAILS_QUERY from '../../queries/getCartDetails.graphql';
 import defaultClasses from './productFullDetail.css';
 import { mergeClasses } from '../../classify';
 
+import shareUrl from '../Logo/logo.png';
+
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  EmailShareButton,
+  EmailIcon,
+} from "react-share";
+
 const Options = React.lazy(() => import('../ProductOptions'));
 
 const ProductFullDetail = props => {
@@ -68,7 +81,7 @@ const ProductFullDetail = props => {
                 <div className="htc__product__details__top">
                     <div className="container">
                         <div className="row">
-                        {/*breadcrumbs*/}
+                        {breadcrumbs}
                         <Form>
                             <div className="col-md-5 col-lg-5 col-sm-12 col-xs-12">
                                 <Carousel images={mediaGalleryEntries} />
@@ -102,6 +115,22 @@ const ProductFullDetail = props => {
                                             Add to Cart
                                         </Button>
                                     </div>
+                                    <FacebookShareButton url={shareUrl}>
+                                        <FacebookIcon size={32} round={true} />
+                                    </FacebookShareButton>
+
+                                    <TwitterShareButton url={shareUrl}>
+                                        <TwitterIcon size={32} round={true} />
+                                    </TwitterShareButton>
+
+                                    <WhatsappShareButton url={shareUrl}>
+                                        <WhatsappIcon size={32} round={true} />
+                                    </WhatsappShareButton>
+
+                                    <EmailShareButton url={shareUrl}>
+                                        <EmailIcon size={32} round={true} />
+                                    </EmailShareButton>
+                                    
                                 </div>
                             </div>
                         </Form>
